@@ -1,0 +1,232 @@
+@import url(https://db.onlinewebfonts.com/c/7a036854f6ab657e3c1a8315df7f3c9b?family=Mario+Kart+DS+Regular);
+
+:root {
+    --accent-color-1: #21D44D;
+    --accent-color-2: #FF0000;
+    --accent-color-3: #003975;
+    --licht-blauw: #2569B2;
+    --text-color-grijs: #C7C7C7;
+    --wit: #fff
+}
+
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    background-color: #003975;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    z-index: 0;
+}
+
+
+h2 {
+    font-family: "Mario Kart DS Regular";
+    text-transform: lowercase;
+}
+
+/*******************************    NAVBAR  ***********************************/
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar {
+    width: 100%;
+    position: fixed;
+    margin-top: 10px;
+    z-index: 2;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-family: "Mario Kart DS Regular";
+    text-transform: lowercase;
+    font-size: 30px;
+    margin-right: 60px;
+}
+
+.inschrijven-btn {
+    background-color: #003975;
+    padding: 16px 24px;
+    border-radius: 16px;
+    /* font-size: 25px !important; */
+}
+
+.hamburger {
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+  
+.nav__link {
+    position: fixed;
+    width: 100%;
+    top: 0rem;
+    /* background: linear-gradient(to right, #003975 0%, #2569B2 100%); */
+}
+  
+.nav__link a {
+    text-align: center;
+    display: block;
+    padding: 10px 0;
+    margin: 0;
+}
+  
+  
+.nav__link a:hover {
+    color: var(--accent-color);
+}
+
+.hide {
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    .nav__link {
+      display: block;
+      position: static;
+      width: auto;
+      margin-right: 20px;
+      background: none;
+    }
+  
+    .nav__link a {
+      display: inline-block;
+      padding: 15px 20px;
+    }
+  
+    .hamburger {
+      display: none;
+    }
+    .mario-img-mobile {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .nav__link {
+        padding-top: 7rem;
+        z-index: -1;
+        backdrop-filter: blur(15px);
+      }
+      .nav__link .inschrijven-btn {
+        margin: 15px 50px;
+      }
+      .mario-img img {
+        width: 100%;
+      }
+      .mario-img {
+         display: none;
+      }
+      .mario-img-mobile img, .kart-title img {
+        width: 100%;
+      }
+      .mario-img-mobile {
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: -10% !important;
+      }
+      .kart-title {
+        top: 40% !important;
+        left: auto !important;
+      }
+      .intro-tekst h2 {
+        font-size: 40px !important;
+      }
+      .intro-tekst {
+        width: 80% !important;
+    }
+}
+
+/*******************************    EINDE NAVBAR    **************************************/
+
+.landing {
+    height: 108vh;
+    width: auto;
+    background-image: url(../img/vista-karting-homepage-achtergrond.png);
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.mario-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.kart-title {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+}
+
+/**********************************WELKOM***************************************/
+
+.welkom {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    text-align: -webkit-center;
+}
+
+.intro-tekst {
+    width: 50%;
+    margin-bottom: 40px;
+}
+
+.intro-tekst p {
+    padding-top: 10px;
+    color: var(--wit);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.welkom .intro-tekst h2 {
+    font-size: 80px;
+    color: var(--wit);
+    text-align: center;
+}
+
+.containers {
+    display: flex;
+    width: 80%;
+}
+
+.container-1, .container-2, .container-3 {
+    padding: 40px;
+    color: var(--wit);
+    margin: 20px;
+    border-radius: 16px;
+}
+
+.containers h2 {
+    margin-bottom: 20px;
+    font-size: 45px;
+}
+
+.container-1 {
+    background-color: var(--accent-color-1);
+}
+
+.container-2 {
+    background-color: var(--wit);
+    color: var(--accent-color-3);
+}
+
+.container-3 {
+    background-color: var(--accent-color-2);
+}
