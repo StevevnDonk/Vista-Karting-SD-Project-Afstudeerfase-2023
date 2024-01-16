@@ -21,7 +21,7 @@
             <a href="#">Home</a>
             <a href="#welkom">Informatie</a>
             <a href="#">Poules</a>
-            <a href="#">Contact</a>
+            <a href="contact.php">Contact</a>
             <a class="inschrijven-btn" href="#inschrijven">Schrijf je nu in!</a>
         </div>
       </nav>
@@ -48,20 +48,20 @@
     <section class="welkom" id="welkom">
         <div class="intro-tekst">
             <h2>Welkom</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit facilisi ad, quis gravida faucibus posuere tincidunt curabitur mus netus, primis sodales accumsan interdum morbi dapibus aliquam viverra. Fames dignissim fusce lectus ullamcorper senectus mus porttitor suspendisse nostra proin, lobortis lacinia aptent duis fermentum vehicula accumsan viverra sociis.</p>
+            <p>Welkom bij ons grootschalige VISTA-karting evenement! We zijn verheugd om je te verwelkomen in deze opwindende kartingwereld. Dit toernooi is met één doel voor ogen georganiseerd: jou een onvergetelijke race-ervaring bezorgen, gevuld met adrenalinepompende wedstrijden en een competitieve sfeer. Bereid je voor op dit epische karting evenement!</p>
         </div>
         <div class="containers">
             <div class="container-1">
                 <h2>Toernooi</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit facilisi ad, quis gravida faucibus posuere tincidunt curabitur mus netus, primis sodales accumsan interdum morbi dapibus aliquam viverra. Fames dignissim fusce lectus ullamcorper senectus mus porttitor suspendisse nostra proin, lobortis lacinia aptent duis fermentum vehicula accumsan viverra sociis.</p>
+                <p>Ons VISTA-karting toernooi brengt karters vanuit heel Vista college samen voor intense racewedstrijden. Doe mee en laat je racevaardigheden zien, daag andere spelers uit en strijd om de titel VISTA-karting kampioen!</p>
             </div>
             <div class="container-2">
                 <h2>Regels</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit facilisi ad, quis gravida faucibus posuere tincidunt curabitur mus netus, primis sodales accumsan interdum morbi dapibus aliquam viverra. Fames dignissim fusce lectus ullamcorper senectus mus porttitor suspendisse nostra proin, lobortis lacinia aptent duis fermentum vehicula accumsan viverra sociis.</p>
+                <p>Ons VISTA-karting toernooi heeft duidelijke regels voor eerlijke concurrentie. Deze omvatten toernooistructuur, speltijd, teamselectie en fair play. Lees de regels zorgvuldig voordat je deelneemt om ervoor te zorgen dat je goed voorbereid bent.</p>
             </div>
             <div class="container-3">
                 <h2>Prijzen</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit facilisi ad, quis gravida faucibus posuere tincidunt curabitur mus netus, primis sodales accumsan interdum morbi dapibus aliquam viverra. Fames dignissim fusce lectus ullamcorper senectus mus porttitor suspendisse nostra proin, lobortis lacinia aptent duis fermentum vehicula accumsan viverra sociis.</p>
+                <p>Bij ons VISTA-karting toernooi wacht een beloning op de winnaar: €600.000. De tweede plaats verdient €200.000, terwijl de derde plaats een trofee krijgt. Doe mee en strijd voor deze prijzen en natuurlijk de eeuwige eer!</p>
             </div>
         </div>
     </section>

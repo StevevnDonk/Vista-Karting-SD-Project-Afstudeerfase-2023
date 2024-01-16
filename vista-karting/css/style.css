@@ -4,6 +4,7 @@
     --accent-color-1: #21D44D;
     --accent-color-2: #FF0000;
     --accent-color-3: #003975;
+    --accent-color-4: #E34965;
     --licht-blauw: #2569B2;
     --text-color-grijs: #C7C7C7;
     --wit: #fff
@@ -20,12 +21,14 @@ html, body {
     margin: 0;
     padding: 0;
     z-index: 0;
+    transition: ease 0.7s;
 }
 
 
 h2 {
     font-family: "Mario Kart DS Regular";
-    text-transform: lowercase;
+    font-size: 80px;
+    text-transform: uppercase;
 }
 
 /*******************************    NAVBAR  ***********************************/
@@ -53,10 +56,19 @@ h2 {
 }
 
 .inschrijven-btn {
-    background-color: #003975;
+    background-color: var(--accent-color-4);
     padding: 16px 24px;
     border-radius: 16px;
     /* font-size: 25px !important; */
+}
+
+a.inschrijven-btn {
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.38);
+}
+
+a.inschrijven-btn:hover {
+    background-color: var(--accent-color-3);
+    color: #fff !important;
 }
 
 .hamburger {
@@ -88,7 +100,7 @@ h2 {
   
   
 .nav__link a:hover {
-    color: var(--accent-color);
+    color: var(--accent-color-3);
 }
 
 .hide {
@@ -156,13 +168,19 @@ h2 {
 /*******************************    EINDE NAVBAR    **************************************/
 
 .landing {
-    height: 108vh;
+    height: 111vh;
     width: auto;
     background-image: url(../img/vista-karting-homepage-achtergrond.png);
     background-size: cover;
     background-position: center;
     z-index: 1;
 }
+
+.mario-img img {
+    height: 110vh;
+    float: right;
+}
+
 
 .mario-img {
     position: absolute;
@@ -190,13 +208,12 @@ h2 {
 }
 
 .intro-tekst p {
-    padding-top: 10px;
+    padding-top: 20px;
     color: var(--wit);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .welkom .intro-tekst h2 {
-    font-size: 80px;
     color: var(--wit);
     text-align: center;
 }
