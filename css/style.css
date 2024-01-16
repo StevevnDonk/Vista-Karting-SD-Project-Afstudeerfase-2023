@@ -4,7 +4,6 @@
     --accent-color-1: #21D44D;
     --accent-color-2: #FF0000;
     --accent-color-3: #003975;
-    --accent-color-4: #E34965;
     --licht-blauw: #2569B2;
     --text-color-grijs: #C7C7C7;
     --wit: #fff
@@ -21,13 +20,12 @@ html, body {
     margin: 0;
     padding: 0;
     z-index: 0;
-    transition: ease 0.7s;
 }
 
 
 h2 {
     font-family: "Mario Kart DS Regular";
-    font-size: 80px;
+    font-size: 70px;
     text-transform: uppercase;
 }
 
@@ -56,19 +54,10 @@ h2 {
 }
 
 .inschrijven-btn {
-    background-color: var(--accent-color-4);
+    background-color: #003975;
     padding: 16px 24px;
     border-radius: 16px;
     /* font-size: 25px !important; */
-}
-
-a.inschrijven-btn {
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.38);
-}
-
-a.inschrijven-btn:hover {
-    background-color: var(--accent-color-3);
-    color: #fff !important;
 }
 
 .hamburger {
@@ -100,7 +89,7 @@ a.inschrijven-btn:hover {
   
   
 .nav__link a:hover {
-    color: var(--accent-color-3);
+    color: var(--accent-color);
 }
 
 .hide {
@@ -168,19 +157,13 @@ a.inschrijven-btn:hover {
 /*******************************    EINDE NAVBAR    **************************************/
 
 .landing {
-    height: 111vh;
+    height: 108vh;
     width: auto;
     background-image: url(../img/vista-karting-homepage-achtergrond.png);
     background-size: cover;
     background-position: center;
     z-index: 1;
 }
-
-.mario-img img {
-    height: 110vh;
-    float: right;
-}
-
 
 .mario-img {
     position: absolute;
@@ -208,12 +191,13 @@ a.inschrijven-btn:hover {
 }
 
 .intro-tekst p {
-    padding-top: 20px;
+    padding-top: 10px;
     color: var(--wit);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .welkom .intro-tekst h2 {
+    font-size: 80px;
     color: var(--wit);
     text-align: center;
 }
@@ -246,4 +230,70 @@ a.inschrijven-btn:hover {
 
 .container-3 {
     background-color: var(--accent-color-2);
+}
+
+
+
+/**********************************CONTACT_FROM***************************************/
+
+
+.contactform {
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    
+}
+.contactform #naam, .contactform #email, .contactform #onderwerp, .contactform #tekst {
+    font-size: 17px;
+}
+.contactform button {
+    background-color: var(--accent-color-2);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 17px;
+    display: block; /* Zorg ervoor dat de knop een block element is */
+    font-family: "Mario Kart DS Regular";
+    margin: 0 auto; /* Stel de linker- en rechtermarge in op 'auto' om de knop horizontaal te centreren */
+}
+.contactform h2 
+{
+    font-size: 50px;
+    color: var(--wit);
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.contactform form {
+    background-color: hsla(212, 100%, 18%, 0.9); /* Donkerblauwe achtergrondkleur met 50% transparantie */
+    backdrop-filter: blur(50px); /* Vervaging van 10 pixels */
+    padding: 65px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    border-radius: 16px;
+}
+
+.contactform label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.contactform input,
+.contactform textarea {
+    width: 100%;
+    width: 500px;
+    padding: 15px 20px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+
+.contactform button:hover {
+    /* background-color: #45a049; */
 }
