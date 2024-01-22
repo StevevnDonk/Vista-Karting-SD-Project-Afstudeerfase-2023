@@ -1,18 +1,20 @@
 <?php
+// Inclusie van de databaseverbinding
 include "connection.php";
 
-// Check de databaseverbinding
+// Controleer de databaseverbinding
 if ($conn->connect_error) {
     die("Kan geen verbinding maken met de database: " . $conn->connect_error);
 }
 
 // Verwerk het registratieformulier als het een POST-verzoek is
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Ontvang gegevens van het formulier
     $voornaam = $_POST["voornaam"];
     $achternaam = $_POST["achternaam"];
     $tussenvoegsel = $_POST["tussenvoegsel"];
     $email = $_POST["email"];
-    $rol = 0; // Je kunt de gewenste rol hier toewijzen
+    $rol = 0; // Rol toewijzen (kan aangepast worden)
 
     // Valideer de invoer
     if (empty($voornaam) || empty($achternaam) || empty($email)) {
@@ -24,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Controleer of het e-mailadres al in de database bestaat
             $email = $conn->real_escape_string($email); // Sanitize invoer
             $sql = "SELECT * FROM gebruiker WHERE email = ?";
-            
+
             $stmtEmailCheck = $conn->prepare($sql);
             $stmtEmailCheck->bind_param("s", $email);
             $stmtEmailCheck->execute();

@@ -3,11 +3,11 @@
 
 /* Root variabelen voor kleuren */
 :root {
-    --accent-color: #E34965;
-    --donker-blauw: #003975;
-    --licht-blauw: #2569B2;
-    --text-color-grijs: #C7C7C7;
-    --wit: #fff
+    --accent-color: #E34965;        /* Accentkleur voor de website */
+    --donker-blauw: #003975;       /* Donkerblauwe kleur */
+    --licht-blauw: #2569B2;        /* Lichtblauwe kleur */
+    --text-color-grijs: #727272;   /* Grijstint voor tekst */
+    --wit: #fff;                   /* Witte kleur */
 }
 
 /* Basisstijlen voor HTML en body */
@@ -35,11 +35,12 @@ html, body {
 }
 
 .inschrijven-title {
+    margin-top: 0.5em;
     max-width: 100%;
     text-align: center;
     color: var(--donker-blauw);
     text-transform: uppercase;
-    font-family: 'Mario Kart DS Regular';
+    font-family: 'Mario Kart DS Regular';   /* Gebruik het Mario Kart DS-lettertype voor de titel */
     font-size: 70px;
 }
 
@@ -47,7 +48,12 @@ html, body {
     margin: 1em;
     text-align: center;
     color: var(--text-color-grijs);
-    font-weight: bolder;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.privacy-policy {
+    color: var(--text-color-grijs);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Invoervelden stijlen */
@@ -77,12 +83,20 @@ html, body {
     margin-top: 20px;
 }
 
+.privacy:hover {
+    color: var(--accent-color);
+}
 
 /* Verzendknop stijlen */
 .inschrijven-submit {
     text-align: center;
     margin-top: 35px;
+}
 
+.submit {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
 }
 
 .inschrijven-btn {
@@ -93,23 +107,21 @@ html, body {
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
-    font-family: 'Mario Kart DS Regular';
+    font-family: 'Mario Kart DS Regular';   /* Gebruik het Mario Kart DS-lettertype voor de knop */
     transition: background-color 0.3s ease;
 }
 
+/* Media-query voor schermgroottes tot 768px */
 @media only screen and (max-width: 768px) {
     .input-container {
-        flex: 0 0 100%;
+        flex: 0 0 100%; /* Volledige breedte voor input-container op kleinere schermen */
     }
 
     .row-inschrijven input {
-        width: calc(100% - 20px);
+        width: calc(100% - 20px); /* Aanpassing van de breedte van invoervelden op kleinere schermen */
     }
-}
 
-@media only screen and (max-width: 768px) {
     .inschrijven-title {
-        font-size: 50px;
+        font-size: 50px; /* Aanpassing van de titelgrootte op kleinere schermen */
     }
 }
-   
