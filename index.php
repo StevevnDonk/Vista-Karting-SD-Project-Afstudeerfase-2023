@@ -12,7 +12,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 // Hier kun je andere code plaatsen die alleen zichtbaar moet zijn voor ingelogde gebruikers
 
-
 include('../connection.php');
 
 // SQL query to retrieve all user data
@@ -49,31 +48,34 @@ $result = $conn->query($sql);
             // Display user information in the table
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row["UserID"] . "</td>";
-                    echo "<td>" . $row["Voornaam"] . "</td>";
-                    echo "<td>" . $row["Achternaam"] . "</td>";
-                    echo "<td>" . $row["Tussenvoegsel"] . "</td>";
-                    echo "<td>" . $row["Email"] . "</td>";
-                    echo "<td>" . $row["Rol"] . "</td>";
-                    
-                    // Edit button
-                    echo "<td>";
-                    echo "<form method='post' action='edit.php'>";
-                    echo "<input type='hidden' name='edit_user' value='" . $row["UserID"] . "'>";
-                    echo "<button type='submit' name='edit_button'>Edit</button>";
-                    echo "</form>";
-                    echo "</td>";
-                    
-                    // Delete button
-                    echo "<td>";
-                    echo "<form method='post' action='delete.php'>";
-                    echo "<input type='hidden' name='delete_user' value='" . $row["UserID"] . "'>";
-                    echo "<button type='submit' name='delete_button'>Delete</button>";
-                    echo "</form>";
-                    echo "</td>";
-                    
-                    echo "</tr>";
+                    // Voeg een controle toe om User ID 0 te vermijden
+                    if ($row["UserID"] != 0) {
+                        echo "<tr>";
+                        echo "<td>" . $row["UserID"] . "</td>";
+                        echo "<td>" . $row["Voornaam"] . "</td>";
+                        echo "<td>" . $row["Achternaam"] . "</td>";
+                        echo "<td>" . $row["Tussenvoegsel"] . "</td>";
+                        echo "<td>" . $row["Email"] . "</td>";
+                        echo "<td>" . $row["Rol"] . "</td>";
+
+                        // Edit button
+                        echo "<td>";
+                        echo "<form method='post' action='edit.php'>";
+                        echo "<input type='hidden' name='edit_user' value='" . $row["UserID"] . "'>";
+                        echo "<button type='submit' name='edit_button'>Edit</button>";
+                        echo "</form>";
+                        echo "</td>";
+
+                        // Delete button
+                        echo "<td>";
+                        echo "<form method='post' action='delete.php'>";
+                        echo "<input type='hidden' name='delete_user' value='" . $row["UserID"] . "'>";
+                        echo "<button type='submit' name='delete_button'>Delete</button>";
+                        echo "</form>";
+                        echo "</td>";
+
+                        echo "</tr>";
+                    }
                 }
             } else {
                 echo "<tr><td colspan='8'>No users found</td></tr>";
