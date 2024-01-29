@@ -1,113 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Meta-tags voor karaktercodering en responsiviteit -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css" />
-    <title>VISTA-Karting</title>
+
+    <!-- Koppeling naar externe stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Titel van de pagina -->
+    <title>Inschrijfformulier</title>
 </head>
+
 <body>
-    <div class="navbar">
-    <nav class="nav">
-        <div class="logo"><a href="admin/login.php" ><img src="img/logo-vista-college.png" alt=""></a></div>
-
-        <div class="hamburger">
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
+    <!-- Het inschrijfformulier -->
+    <form method="post" action="registration.php" id="inschrijven" class="inschrijf-formulier">
+        <div class="inschrijven">
+            <!-- Titel van het inschrijfformulier -->
+            <h2 class="inschrijven-title">Inschrijven</h2>
+            
+            <!-- Instructietekst voor het invullen van informatie -->
+            <p class="inschrijven-text">Voor het inschrijven, kunt u hieronder de informatie invullen.</p>
         </div>
 
-        <div class="nav__link hide">
-            <a href="#">Home</a>
-            <a href="#welkom">Informatie</a>
-            <a href="#">Poules</a>
-            <a href="contact.php">Contact</a>
-            <a class="inschrijven-btn" href="#inschrijven">Schrijf je nu in!</a>
-        </div>
-      </nav>
-      </div>
-      <script src="js/navbar.js"></script>
-
-<!---------------------------------    LANDING   ---------------------------------------->
-
-    
-    <div class="landing">
-        <div class="kart-title">
-            <img src="img/vista-karting-kart-title.png" alt="">
-        </div>
-        <div class="mario-img">
-            <img src="img/vista-karting-homepage-mario.png" alt="">
-        </div>
-        <div class="mario-img-mobile">
-            <img src="img/vista-karting-homepage-mario-mobile.png" alt="">
-        </div>
-    </div>
-
-<!---------------------------------    WELKOM INTRO   ---------------------------------------->
-    
-    <section class="welkom" id="welkom">
-        <div class="intro-tekst">
-            <h2>Welkom</h2>
-            <p>Welkom bij ons grootschalige VISTA-karting evenement! We zijn verheugd om je te verwelkomen in deze opwindende kartingwereld. Dit toernooi is met één doel voor ogen georganiseerd: jou een onvergetelijke race-ervaring bezorgen, gevuld met adrenalinepompende wedstrijden en een competitieve sfeer. Bereid je voor op dit epische karting evenement!</p>
-        </div>
-        <div class="containers">
-            <div class="container-1">
-                <h2>Toernooi</h2>
-                <p>Ons VISTA-karting toernooi brengt karters vanuit heel Vista college samen voor intense racewedstrijden. Doe mee en laat je racevaardigheden zien, daag andere spelers uit en strijd om de titel VISTA-karting kampioen!</p>
+        <!-- Invoervelden voor voornaam en tussenvoegsel -->
+        <div class="row-inschrijven">
+            <div class="input-container">
+                <div class="voornaam">
+                    <!-- Invoerveld voor voornaam -->
+                    <input size="40" aria-required="true" aria-invalid="false" placeholder="Voornaam" value=""
+                        type="text" name="voornaam">
+                </div>
             </div>
-            <div class="container-2">
-                <h2>Regels</h2>
-                <p>Ons VISTA-karting toernooi heeft duidelijke regels voor eerlijke concurrentie. Deze omvatten toernooistructuur, speltijd, teamselectie en fair play. Lees de regels zorgvuldig voordat je deelneemt om ervoor te zorgen dat je goed voorbereid bent.</p>
-            </div>
-            <div class="container-3">
-                <h2>Prijzen</h2>
-                <p>Bij ons VISTA-karting toernooi wacht een beloning op de winnaar: €600.000. De tweede plaats verdient €200.000, terwijl de derde plaats een trofee krijgt. Doe mee en strijd voor deze prijzen en natuurlijk de eeuwige eer!</p>
+            <div class="input-container">
+                <div class="tussenvoegsel">
+                    <!-- Invoerveld voor tussenvoegsel (optioneel) -->
+                    <input size="40" placeholder="Tussenvoegsel (optioneel)" value="" type="text" name="tussenvoegsel">
+                </div>
             </div>
         </div>
-    </section>
 
-<!---------------------------------    POULE INDELING   ---------------------------------------->
+        <!-- Invoervelden voor achternaam en e-mail -->
+        <div class="row-inschrijven">
+            <div class="input-container">
+                <div class="achternaam">
+                    <!-- Invoerveld voor achternaam -->
+                    <input size="40" aria-required="true" aria-invalid="false" placeholder="Achternaam" value=""
+                        type="text" name="achternaam">
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="email">
+                    <!-- Invoerveld voor e-mail -->
+                    <input size="40" aria-required="true" aria-invalid="false" placeholder="E-mail" value=""
+                        type="email" name="email">
+                </div>
+            </div>
+        </div>
 
-    <div class="poules">
-        <div class="poule-table">
-          <h1>Poule 1</h1>
-          <table>
-              <thead>
-                  <tr>
-                      <th>ID</th>
-                      <th>Speler</th>
-                      <th>P</th>
-                  </tr>
-              </thead>
-              <tbody>
-                 <?php
-                //   require 'connection.php'; // Zorg ervoor dat de verbinding correct is opgezet in 'connection.php'
+        <!-- Privacybeleid checkbox -->
+        <div class="privacy-policy">
+            <label for="privacy-policy">
+                <!-- Checkbox voor het accepteren van het privacybeleid -->
+                <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
+                Ik heb het <a class="privacy" href="https://www.iubenda.com/privacy-policy/50445472"
+                    target="_blank">privacybeleid</a> gelezen en ga ermee akkoord.
+            </label>
+        </div>
 
-                //   // Voer de SQL-query uit om teamgegevens op te halen tot en met TeamID 12
-                //   $sql = "SELECT SpelerID, Naam FROM team WHERE TeamID <= 12";  // Vervang dit door je eigen functie
-
-                //   $result = $conn->query($sql); // $conn is de databaseverbinding die in 'connection.php' is ingesteld
-
-                //   if ($result->num_rows > 0) {
-                //       while ($team = $result->fetch_assoc()) {
-                //           echo '<tr>';
-                //           echo '<td>' . $team['TeamID'] . '</td>';
-                //           echo '<td>' . $team['Naam'] . '</td>';
-                //           echo '<td>-</td>';
-                //           echo '<td>-</td>';
-                //           echo '<td>-</td>';
-                //           echo '<td>-</td>';
-                //           echo '</tr>';
-                //       }
-                //   } else {
-                //       echo "Geen resultaten gevonden";
-                //   }
-
-                //   // Verbinding met de database sluiten
-                //   $conn->close();
-                  ?>
-              </tbody>
-          </table>
-      </div>
-
+        <!-- Verzendknop -->
+        <div class="submit">
+            <!-- Knop om het inschrijfformulier te verzenden -->
+            <input class="inschrijven-btn" type="submit" value="SCHRIJF JE NU IN" />
+        </div>
+    </form>
+</body>
 </html>

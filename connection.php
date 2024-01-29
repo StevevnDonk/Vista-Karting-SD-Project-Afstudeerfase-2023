@@ -1,9 +1,9 @@
 <?php
 // Databasegegevens
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "vistakarting";
+$servername = "srv042105.webreus.net";
+$username = "c49046karting";
+$password = "!@KaasKop";
+$database = "c49046karting";
 
 // Create a new connection
 $conn = new mysqli($servername, $username, $password, $database);
