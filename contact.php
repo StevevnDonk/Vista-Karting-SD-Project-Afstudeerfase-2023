@@ -19,11 +19,11 @@
         </div>
 
         <div class="nav__link hide">
-            <a href="index.php">Home</a>
-            <a href="#welkom">Informatie</a>
-            <a href="#">Poules</a>
+            <a href="/vista-karting/">Home</a>
+            <a href="/vista-karting/#welkom">Informatie</a>
+            <a href="/vista-karting/#poules">Poules</a>
             <a href="#">Contact</a>
-            <a class="inschrijven-btn" href="#inschrijven">Schrijf je nu in!</a>
+            <a class="inschrijven-btn" href="/vista-karting/#inschrijven">Schrijf je nu in!</a>
         </div>
       </nav>
       </div>

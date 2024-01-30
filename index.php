@@ -9,7 +9,7 @@
 <body>
     <div class="navbar">
     <nav class="nav">
-        <div class="logo"><a href="admin/login.php" ><img src="img/logo-vista-college.png" alt=""></a></div>
+        <div class="logo"><a href="admin" ><img src="img/logo-vista-college.png" alt=""></a></div>
 
         <div class="hamburger">
           <span class="line"></span>
@@ -20,7 +20,7 @@
         <div class="nav__link hide">
             <a href="#">Home</a>
             <a href="#welkom">Informatie</a>
-            <a href="#">Poules</a>
+            <a href="#poules">Poules</a>
             <a href="contact.php">Contact</a>
             <a class="inschrijven-btn" href="#inschrijven">Schrijf je nu in!</a>
         </div>
@@ -61,53 +61,175 @@
             </div>
             <div class="container-3">
                 <h2>Prijzen</h2>
-                <p>Bij ons VISTA-karting toernooi wacht een beloning op de winnaar: €600.000. De tweede plaats verdient €200.000, terwijl de derde plaats een trofee krijgt. Doe mee en strijd voor deze prijzen en natuurlijk de eeuwige eer!</p>
+                <p>Bij ons VISTA-karting toernooi wacht een beloning op de winnaar: de prachtige gouden trofee! De tweede plaats verdient de schitterende zilveren trofee, terwijl de derde plaats de bronzen trofee in ontvangst mag nemen. De vierde plek krijgt een mooie medaille.</p>
             </div>
         </div>
     </section>
 
 <!---------------------------------    POULE INDELING   ---------------------------------------->
 
-    <div class="poules">
-        <div class="poule-table">
-          <h1>Poule 1</h1>
-          <table>
-              <thead>
-                  <tr>
-                      <th>ID</th>
-                      <th>Speler</th>
-                      <th>P</th>
-                  </tr>
-              </thead>
-              <tbody>
-                 <?php
-                //   require 'connection.php'; // Zorg ervoor dat de verbinding correct is opgezet in 'connection.php'
+<style>
+    .poules {
+        /* display: flex; */
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 
-                //   // Voer de SQL-query uit om teamgegevens op te halen tot en met TeamID 12
-                //   $sql = "SELECT SpelerID, Naam FROM team WHERE TeamID <= 12";  // Vervang dit door je eigen functie
+    .poule-table {
+        /* width: 20%; */
+        margin-bottom: 20px;
+    }
+</style>
 
-                //   $result = $conn->query($sql); // $conn is de databaseverbinding die in 'connection.php' is ingesteld
+<div class="poules" id="poules">
+    <?php
+    require 'connection.php';
 
-                //   if ($result->num_rows > 0) {
-                //       while ($team = $result->fetch_assoc()) {
-                //           echo '<tr>';
-                //           echo '<td>' . $team['TeamID'] . '</td>';
-                //           echo '<td>' . $team['Naam'] . '</td>';
-                //           echo '<td>-</td>';
-                //           echo '<td>-</td>';
-                //           echo '<td>-</td>';
-                //           echo '<td>-</td>';
-                //           echo '</tr>';
-                //       }
-                //   } else {
-                //       echo "Geen resultaten gevonden";
-                //   }
+    $pouleIDs = $conn->query("SELECT DISTINCT PouleID FROM poule ORDER BY PouleID ASC");
 
-                //   // Verbinding met de database sluiten
-                //   $conn->close();
-                  ?>
-              </tbody>
-          </table>
-      </div>
+    if ($pouleIDs->num_rows > 0) {
+        $count = 0;
+        while ($pouleID = $pouleIDs->fetch_assoc()) {
+            $currentPouleID = $pouleID['PouleID'];
+
+            echo '<div class="poule-table">';
+            echo '<h1>Poule ' . $currentPouleID . '</h1>';
+            echo '<table>';
+            echo '<thead>';
+            echo '<tr>';
+            echo '<th>ID</th>';
+            echo '<th>Naam</th>';
+            echo '<th>P</th>';
+            '</tr>';
+            echo '</thead>';
+            echo '<tbody>';
+
+            $sql = "SELECT Speler1, Speler2, Speler3, Speler4 FROM poule WHERE PouleID = $currentPouleID";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($team = $result->fetch_assoc()) {
+                    for ($i = 1; $i <= 4; $i++) {
+                        echo '<tr>';
+                        $spelerID = $team['Speler' . $i];
+                        
+                        if ($spelerID != null) {
+                            // Voeg de query toe om de voornaam van de speler op te halen
+                            $voornaamQuery = $conn->query("SELECT Voornaam FROM gebruiker WHERE UserID = $spelerID");
+                            
+                            if ($voornaamQuery->num_rows > 0) {
+                                $voornaam = $voornaamQuery->fetch_assoc()['Voornaam'];
+                                echo '<td>' . $spelerID . '</td>';
+                                echo '<td>' . $voornaam . '</td>';
+                                echo '<td>-</td>';
+                            } else {
+                                echo '<td>' . $spelerID . '</td>';
+                                echo '<td>Onbekend</td>';
+                                echo '<td>-</td>';
+                            }
+                        } else {
+                            // Toon een middenstreep als de plek in de poule vrij is
+                            echo '<td>-</td>';
+                            echo '<td>-</td>';
+                            echo '<td>-</td>';
+                        }
+                        
+                        echo '</tr>';
+                    }
+                }
+            } else {
+                echo "Geen resultaten gevonden";
+            }
+
+            echo '</tbody>';
+            echo '</table>';
+            echo '</div>';
+
+            $count++;
+
+            // Als de eerste drie poules zijn afgedrukt, voeg een extra div toe voor de volgende rij
+            if ($count % 3 === 0) {
+                echo '</div><div class="poules">';
+            }
+        }
+        echo '</div>'; // Sluit de laatste div voor de poules
+    } else {
+        echo "Geen poules gevonden";
+    }
+
+    $conn->close();
+    ?>
+</div>
+
+
+
+      
+<!-- Het inschrijfformulier -->
+<form method="post" action="registration.php" id="inschrijven" class="inschrijf-formulier">
+        <div class="inschrijven">
+            <!-- Titel van het inschrijfformulier -->
+            <h2 class="inschrijven-title">Inschrijven</h2>
+            
+            <!-- Instructietekst voor het invullen van informatie -->
+            <p class="inschrijven-text">Voor het inschrijven, kunt u hieronder de informatie invullen.</p>
+        </div>
+
+        <!-- Invoervelden voor voornaam en tussenvoegsel -->
+        <div class="row-inschrijven">
+            <div class="input-container">
+                <div class="voornaam">
+                    <!-- Invoerveld voor voornaam -->
+                    <input size="40" aria-required="true" aria-invalid="false" placeholder="Voornaam" value=""
+                        type="text" name="voornaam">
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="tussenvoegsel">
+                    <!-- Invoerveld voor tussenvoegsel (optioneel) -->
+                    <input size="40" placeholder="Tussenvoegsel (optioneel)" value="" type="text" name="tussenvoegsel">
+                </div>
+            </div>
+        </div>
+
+        <!-- Invoervelden voor achternaam en e-mail -->
+        <div class="row-inschrijven">
+            <div class="input-container">
+                <div class="achternaam">
+                    <!-- Invoerveld voor achternaam -->
+                    <input size="40" aria-required="true" aria-invalid="false" placeholder="Achternaam" value=""
+                        type="text" name="achternaam">
+                </div>
+            </div>
+            <div class="input-container">
+                <div class="email">
+                    <!-- Invoerveld voor e-mail -->
+                    <input size="40" aria-required="true" aria-invalid="false" placeholder="E-mail" value=""
+                        type="email" name="email">
+                </div>
+            </div>
+        </div>
+
+        <!-- Privacybeleid checkbox -->
+        <div class="privacy-policy">
+            <label for="privacy-policy">
+                <!-- Checkbox voor het accepteren van het privacybeleid -->
+                <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
+                Ik heb het <a class="privacy" href="https://www.iubenda.com/privacy-policy/50445472"
+                    target="_blank">privacybeleid</a> gelezen en ga ermee akkoord.
+            </label>
+        </div>
+
+        <!-- Verzendknop -->
+        <div class="submit">
+            <!-- Knop om het inschrijfformulier te verzenden -->
+            <input class="inschrijven-btn" type="submit" value="SCHRIJF JE NU IN" />
+        </div>
+    </form>
+
+    
+
+</div>
+
+</body>
 
 </html>
