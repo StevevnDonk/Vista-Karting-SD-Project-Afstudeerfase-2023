@@ -1,26 +1,332 @@
-/* Importeer het Mario Kart DS-lettertype van de online webfonts */
 @import url(https://db.onlinewebfonts.com/c/7a036854f6ab657e3c1a8315df7f3c9b?family=Mario+Kart+DS+Regular);
 
-/* Root variabelen voor kleuren */
 :root {
-    --accent-color: #E34965;        /* Accentkleur voor de website */
-    --donker-blauw: #003975;       /* Donkerblauwe kleur */
-    --licht-blauw: #2569B2;        /* Lichtblauwe kleur */
-    --text-color-grijs: #727272;   /* Grijstint voor tekst */
-    --wit: #fff;                   /* Witte kleur */
+    --accent-color-1: #21D44D;
+    --accent-color-2: #FF0000;
+    --accent-color-3: #003975;
+    --accent-color-4: #E34965;
+    --licht-blauw: #2569B2;
+    --text-color-grijs: #C7C7C7;
+    --text-color-donker-grijs: #757474;
+    --wit: #fff
 }
 
-/* Basisstijlen voor HTML en body */
+
 html, body {
     width: 100%;
+    min-height: 100%;
+    background-color: #003975;
 }
 
-/* Reset standaard marges, padding en z-index */
 * {
     margin: 0;
     padding: 0;
     z-index: 0;
+    transition: ease 0.7s;
 }
+
+
+h2 {
+    font-family: "Mario Kart DS Regular";
+    font-size: 80px;
+    text-transform: uppercase;
+}
+
+/*******************************    NAVBAR  ***********************************/
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar {
+    width: 100%;
+    position: fixed;
+    margin-top: 10px;
+    z-index: 2;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-family: "Mario Kart DS Regular";
+    text-transform: lowercase;
+    font-size: 30px;
+    margin-right: 60px;
+}
+
+.inschrijven-btn {
+    background-color: var(--accent-color-4);
+    padding: 16px 24px;
+    border-radius: 16px;
+    /* font-size: 25px !important; */
+}
+
+a.inschrijven-btn {
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.38);
+}
+
+a.inschrijven-btn:hover {
+    background-color: var(--accent-color-3);
+    color: #fff !important;
+}
+
+.hamburger {
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+  
+.nav__link {
+    position: fixed;
+    width: 100%;
+    top: 0rem;
+    /* background: linear-gradient(to right, #003975 0%, #2569B2 100%); */
+}
+  
+.nav__link a {
+    text-align: center;
+    display: block;
+    padding: 10px 0;
+    margin: 0;
+}
+  
+  
+.nav__link a:hover {
+    color: var(--accent-color-3);
+}
+
+.hide {
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    .nav__link {
+      display: block;
+      position: static;
+      width: auto;
+      margin-right: 20px;
+      background: none;
+    }
+  
+    .nav__link a {
+      display: inline-block;
+      padding: 15px 20px;
+    }
+  
+    .hamburger {
+      display: none;
+    }
+    .mario-img-mobile {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .nav__link {
+        padding-top: 7rem;
+        z-index: -1;
+        backdrop-filter: blur(15px);
+      }
+      .nav__link .inschrijven-btn {
+        margin: 15px 50px;
+      }
+      .mario-img img {
+        width: 100%;
+      }
+      .mario-img {
+         display: none;
+      }
+      .mario-img-mobile img, .kart-title img {
+        width: 100%;
+      }
+      .mario-img-mobile {
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: -10% !important;
+      }
+      .kart-title {
+        top: 40% !important;
+        left: auto !important;
+      }
+      .intro-tekst h2 {
+        font-size: 40px !important;
+      }
+      .intro-tekst {
+        width: 80% !important;
+    }
+}
+
+/*******************************    EINDE NAVBAR    **************************************/
+
+.landing {
+    height: 111vh;
+    width: auto;
+    background-image: url(../img/vista-karting-homepage-achtergrond.png);
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+.contact-page .landing {
+    background-image: url(../img/vista-karting-achtergrond.png);
+}
+
+.contact-page {
+    max-height: 100vh !important;
+}
+
+.mario-img img {
+    height: 110vh;
+    float: right;
+}
+
+.mario-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.kart-title {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+}
+
+/**********************************WELKOM***************************************/
+
+.welkom {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    text-align: -webkit-center;
+}
+
+.welkom .containers h2 {
+    text-transform: lowercase !important;
+}
+
+.intro-tekst {
+    width: 50%;
+    margin-bottom: 40px;
+}
+
+.intro-tekst p {
+    padding-top: 20px;
+    color: var(--wit);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.welkom .intro-tekst h2 {
+    color: var(--wit);
+    text-align: center;
+}
+
+.containers {
+    display: flex;
+    width: 80%;
+}
+
+.container-1, .container-2, .container-3 {
+    padding: 40px;
+    color: var(--wit);
+    margin: 20px;
+    border-radius: 16px;
+}
+
+.containers h2 {
+    margin-bottom: 20px;
+    font-size: 45px;
+}
+
+.container-1 {
+    background-color: var(--accent-color-1);
+}
+
+.container-2 {
+    background-color: var(--wit);
+    color: var(--accent-color-3);
+}
+
+.container-3 {
+    background-color: var(--accent-color-2);
+}
+
+
+
+/**********************************CONTACT_FROM***************************************/
+
+
+.contactform {
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    
+}
+.contactform #naam, .contactform #email, .contactform #onderwerp, .contactform #tekst {
+    font-size: 17px;
+}
+.contactform button {
+    background-color: var(--accent-color-2);
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: lowercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 17px;
+    display: block; /* Zorg ervoor dat de knop een block element is */
+    font-family: "Mario Kart DS Regular";
+    margin: 0 auto; /* Stel de linker- en rechtermarge in op 'auto' om de knop horizontaal te centreren */
+}
+.contactform h2 
+{
+    font-size: 50px;
+    color: var(--wit);
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.contactform form {
+    background-color: hsla(212, 100%, 18%, 0.9); /* Donkerblauwe achtergrondkleur met 50% transparantie */
+    backdrop-filter: blur(50px); /* Vervaging van 10 pixels */
+    padding: 65px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    border-radius: 16px;
+}
+
+.contactform label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.contactform input,
+.contactform textarea {
+    width: 100%;
+    width: 500px;
+    padding: 15px 20px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+
+.contactform button:hover {
+    /* background-color: #45a049; */
+}
+
+
 
 /* Inschrijfformulier stijlen */
 .inschrijf-formulier {
@@ -28,17 +334,17 @@ html, body {
     flex-direction: column;
     max-width: 100%;
     gap: 1em;
-    background-color: #eee;
-    padding: 20px;
-    border-radius: 8px;
+    background-color: #d6d5d5;
+    padding: 80px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #fff;
 }
 
 .inschrijven-title {
     margin-top: 0.5em;
     max-width: 100%;
     text-align: center;
-    color: var(--donker-blauw);
+    color: var(--accent-color-3);
     text-transform: uppercase;
     font-family: 'Mario Kart DS Regular';   /* Gebruik het Mario Kart DS-lettertype voor de titel */
     font-size: 70px;
@@ -47,7 +353,7 @@ html, body {
 .inschrijven-text {
     margin: 1em;
     text-align: center;
-    color: var(--text-color-grijs);
+    color: var(--text-color-donker-grijs);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -73,15 +379,14 @@ html, body {
     padding: 12px;
     border: none;
     border-radius: 8px;
-    background-color: #d9d9d9;
+    background-color: var(--wit);
 }
 
 /* Privacybeleid checkbox stijlen */
 .privacy-policy {
     text-align: center;
-    color: var(--text-color-grijs);
-    margin-top: 20px;
-}
+    color: var(--text-color-donker-grijs);
+}   
 
 .privacy:hover {
     color: var(--accent-color);
@@ -89,6 +394,7 @@ html, body {
 
 /* Verzendknop stijlen */
 .inschrijven-submit {
+    margin-top: 20px;
     text-align: center;
     margin-top: 35px;
 }
@@ -108,6 +414,7 @@ html, body {
     cursor: pointer;
     font-size: 16px;
     font-family: 'Mario Kart DS Regular';   /* Gebruik het Mario Kart DS-lettertype voor de knop */
+    margin-top: 40px;
     transition: background-color 0.3s ease;
 }
 
@@ -124,4 +431,65 @@ html, body {
     .inschrijven-title {
         font-size: 50px; /* Aanpassing van de titelgrootte op kleinere schermen */
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.poules {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.poule-table {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: 'Syncopate', sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #002852;
+}
+
+
+
+
+
+.inschrijf-formulier {
+    border-top: 3px solid #fff;
+    background-color: #e3e4e6 !important;
+    padding-top: 30px;
+    padding-bottom: 60px;
+    text-align: center;
 }

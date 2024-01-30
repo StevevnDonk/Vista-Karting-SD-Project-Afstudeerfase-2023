@@ -75,25 +75,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <!-- Voeg hier eventuele CSS-stijlen toe -->
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <title>VISTA-Karting</title>
 </head>
-<body>
-    <h2>Login</h2>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <div>
-            <label>E-mailadres</label>
-            <input type="text" name="email" value="<?php echo $email; ?>">
+<body class="contact-page">
+    <div class="navbar">
+    <nav class="nav">
+        <div class="logo"><a href="admin/login.php" ><img src="img/logo-vista-college.png" alt=""></a></div>
+
+        <div class="hamburger">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+
+        <div class="nav__link hide">
+            <a href="index.php">Home</a>
+            <a href="#welkom">Informatie</a>
+            <a href="#">Poules</a>
+            <a href="#">Contact</a>
+            <a class="inschrijven-btn" href="#inschrijven">Schrijf je nu in!</a>
+        </div>
+      </nav>
+      </div>
+      <script src="js/navbar.js"></script>
+
+<!---------------------------------    LANDING   ---------------------------------------->
+
+    
+    <div class="landing">
+        <div class="mario-img">
+            <img src="img/vista-karting-homepage-mario.png" alt="">
+        </div>
+        <div class="mario-img-mobile">
+            <img src="img/vista-karting-homepage-mario-mobile.png" alt="">
+        </div>
+    </div>
+
+    <!---------------------------------    CONTACT   ---------------------------------------->
+
+    <div class="contactform">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <h2>Inloggen</h2>
+            <label for="email"></label>
+            <input type="text" id="email" name="email" placeholder="E-mailadres" required>
             <span><?php echo $email_err; ?></span>
-        </div>    
-        <div>
-            <label>Wachtwoord</label>
-            <input type="password" name="password">
+
+            <input type="password" name="password" placeholder="Wachtwoord">
             <span><?php echo $password_err; ?></span>
-        </div>
-        <div>
-            <button type="submit">Login</button>
-        </div>
-    </form>
+
+             <button type="submit">Login</button>
+        </form>
+    </div>
 </body>
 </html>
